@@ -1,0 +1,25 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+
+	<description>
+	R Roll for Statistical Computing
+	</description>
+
+	<copyright>
+	</copyright>
+
+	<changelog>
+	</changelog>
+
+	<package>R</package>
+	<package>rocks-R</package>
+
+<post>
+
+/sbin/ldconfig
+
+</post>
+
+</kickstart>

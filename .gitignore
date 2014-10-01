@@ -1,0 +1,23 @@
+# build directory
+RPMS/
+SOURCES/
+BUILD/
+SPECS/
+
+_arch
+_distribution
+_os
+.rpmmacros
+
+disk1/
+R-*.iso
+
+# ignore version* files
+rocks-version.mk
+rocks-version-common.mk
+roll-R.*
+roll-profile.mk
+
+# ignore Rules* files
+Rules*.mk
+Rolls.mk

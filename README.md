@@ -1,4 +1,5 @@
 R
-=
+==========
 
-R roll for statisticalcomputing
+R roll for statistical computing
+Intended to use by BiodDversity Gleon Expeditions
