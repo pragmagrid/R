@@ -8,6 +8,7 @@ _arch
 _distribution
 _os
 .rpmmacros
+python.mk
 
 disk1/
 R-*.iso
@@ -21,3 +22,6 @@ roll-profile.mk
 # ignore Rules* files
 Rules*.mk
 Rolls.mk
+
+# ignore source files
+src/R/R*gz

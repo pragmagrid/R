@@ -2,7 +2,6 @@
 
 <kickstart>
 
-
 	<description>
 	R Roll for Statistical Computing
 	</description>
@@ -14,12 +13,10 @@
 	</changelog>
 
 	<package>R</package>
-	<package>rocks-R</package>
+	<package>R-module</package>
 
 <post>
-
 /sbin/ldconfig
-
 </post>
 
 </kickstart>

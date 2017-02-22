@@ -1,0 +1,9 @@
+#%Module1.0
+module-whatis "R"
+module-whatis "Version: @VERSION@"
+module-whatis "Description: R"
+prepend-path PATH @RDIR@/bin
+prepend-path R_LIBS @RDIR@/lib64/R/lib
+
+setenv RHOME @RDIR@/lib64/R
+module load gnu

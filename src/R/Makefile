@@ -3,9 +3,9 @@
 # @Copyright@
 # 
 # 				Rocks(r)
-# 		         www.rocksclusters.org
-# 		         version 5.6 (Emerald Boa)
-# 		         version 6.1 (Emerald Boa)
+# 			 www.rocksclusters.org
+# 			 version 5.6 (Emerald Boa)
+# 			 version 6.1 (Emerald Boa)
 # 
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
 # All rights reserved.	
@@ -61,6 +61,14 @@ REDHAT.ROOT = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 
+CONF=R.conf
+
+pretar:: $(VERSION.MK.INCLUDE)
+
+$(VERSION.MK.INCLUDE): 
+	if [ -f $(VERSION.MK.MASTER.DIR)/$(VERSION.MK.MASTER) ]; then \
+		/bin/cp $(VERSION.MK.MASTER.DIR)/$(VERSION.MK.MASTER) $@; \
+	fi
 
 build:
 	gunzip -c $(PKGNAME)-$(VERSION).$(TARBALL_POSTFIX) | $(TAR) -xf -
@@ -69,7 +77,8 @@ build:
 		./configure --prefix=$(PKGROOT) --enable-R-shlib --enable-threads=posix;	\
 		$(MAKE);					\
 	)
-	
+	echo $(PKGROOT)/lib64/R/lib > $(CONF)
+
 
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
@@ -82,7 +91,11 @@ install::
 		find . -type f | cpio -pduv $(ROOT)/$(PKGROOT); \
 		rm -rf  $(PKGROOT); \
 	)
+	mkdir -p $(ROOT)/etc/ld.so.conf.d
+	install -m 644 R.conf $(ROOT)/etc/ld.so.conf.d
 
 clean::
 	rm -rf $(PKGNAME)-$(VERSION)
 	rm -rf $(PKGROOT)
+	rm -rf $(VERSION.MK.INCLUDE)
+	rm -rf $(CONF)
